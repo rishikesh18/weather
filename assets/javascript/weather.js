@@ -30,15 +30,15 @@ function getCity(city) {
             if (response.forecast) {
                
 
-                    console.log(queryURL);
-                    console.log(response);
-                    console.log(response.forecast.txt_forecast.date);
+                    // console.log(queryURL);
+                    // console.log(response);
+                    // console.log(response.forecast.txt_forecast.date);
                     var x = document.createElement("IMG");
                     x.setAttribute("src", response.forecast.txt_forecast.forecastday[0].icon_url);
                     x.setAttribute("width", "70");
                     x.setAttribute("height", "auto");
                     x.setAttribute("alt", "The Pulpit Rock");            
-                    console.log(x);
+                   // console.log(x);
                     $("#duration1").html(response.forecast.txt_forecast.forecastday[0].title);
                     $("#forecat_first").html(x);
                     $("#forecat_first_description").html(response.forecast.txt_forecast.forecastday[0].fcttext_metric);
@@ -48,7 +48,7 @@ function getCity(city) {
                     y.setAttribute("width", "70");
                     y.setAttribute("height", "auto");
                     y.setAttribute("alt", "The Pulpit Rock");       
-                    console.log(y);
+                   // console.log(y);
                     $("#duration2").html(response.forecast.txt_forecast.forecastday[1].title);
                     $("#forecat_second").html(y);
                     $("#forecat_second_description").html(response.forecast.txt_forecast.forecastday[1].fcttext_metric);
@@ -58,7 +58,7 @@ function getCity(city) {
                     z.setAttribute("width", "70");
                     z.setAttribute("height", "auto");
                     z.setAttribute("alt", "The Pulpit Rock");       
-                    console.log(z);
+                   // console.log(z);
                     $("#duration3").html(response.forecast.txt_forecast.forecastday[2].title);
                     $("#forecat_third").html(z);
                     $("#forecat_third_description").html(response.forecast.txt_forecast.forecastday[2].fcttext_metric);
@@ -79,7 +79,7 @@ function getCity(city) {
     //API url (use one of the two.)
     //var queryURL2 = "https://api.wunderground.com/api/87d18b0282c9396c/conditions/q/"+city+".json"
     var queryURL2 = "https://api.wunderground.com/api/e58ab528f4132c06/conditions/q/"+city+".json"
-    console.log(queryURL2);
+    //console.log(queryURL2);
 
     $.ajax({
         url: queryURL2,
@@ -89,14 +89,14 @@ function getCity(city) {
         .then (function(response) {
             if (response.current_observation) {
                
-                    console.log(response);
+                   // console.log(response);
                 
                     var x = document.createElement("IMG");
                     x.setAttribute("src", response.current_observation.icon_url);
                     x.setAttribute("width", "70");
                     x.setAttribute("height", "auto");
                     x.setAttribute("alt", "The Pulpit Rock");        
-                    console.log(x);        
+                   // console.log(x);        
                     $("#current_condition").html(response.current_observation.weather); 
                     $("#current_img").html(x);
                     $("#current_data").html("<p>Temperature: "+response.current_observation.temp_c + " C</p></br>"+                                           
@@ -117,7 +117,7 @@ function getCity(city) {
 
     var queryURL3 = "https://api.wunderground.com/api/e58ab528f4132c06/forecast10day/q/"+city+".json"
 
-    console.log(queryURL3);
+    //console.log(queryURL3);
     
     $.ajax({
         url: queryURL3,
@@ -128,15 +128,15 @@ function getCity(city) {
             if (response.forecast) {
                
 
-                console.log(queryURL);
-                console.log(response);
-                console.log(response.forecast.txt_forecast.date);
+                // console.log(queryURL);
+                // console.log(response);
+                // console.log(response.forecast.txt_forecast.date);
                 var x1 = document.createElement("IMG");
                 x1.setAttribute("src", response.forecast.txt_forecast.forecastday[3].icon_url);
                 x1.setAttribute("width", "70");
                 x1.setAttribute("height", "auto");
                 x1.setAttribute("alt", "The Pulpit Rock");            
-                console.log(x1);
+                //console.log(x1);
                 $("#day1").html(response.forecast.txt_forecast.forecastday[3].title);
                 $("#forecat_day1").html(x1);
                 $("#forecat_day1_description").html(response.forecast.txt_forecast.forecastday[3].fcttext_metric);
@@ -146,7 +146,7 @@ function getCity(city) {
                 x2.setAttribute("width", "70");
                 x2.setAttribute("height", "auto");
                 x2.setAttribute("alt", "The Pulpit Rock");            
-                console.log(x2);
+               // console.log(x2);
                 $("#day2").html(response.forecast.txt_forecast.forecastday[4].title);
                 $("#forecat_day2").html(x2);
                 $("#forecat_day2_description").html(response.forecast.txt_forecast.forecastday[4].fcttext_metric);
@@ -156,7 +156,7 @@ function getCity(city) {
                 x3.setAttribute("width", "70");
                 x3.setAttribute("height", "auto");
                 x3.setAttribute("alt", "The Pulpit Rock");            
-                console.log(x3);
+                //console.log(x3);
                 $("#day3").html(response.forecast.txt_forecast.forecastday[5].title);
                 $("#forecat_day3").html(x3);
                 $("#forecat_day3_description").html(response.forecast.txt_forecast.forecastday[5].fcttext_metric);
@@ -166,7 +166,7 @@ function getCity(city) {
                 x4.setAttribute("width", "70");
                 x4.setAttribute("height", "auto");
                 x4.setAttribute("alt", "The Pulpit Rock");            
-                console.log(x4);
+               // console.log(x4);
                 $("#day4").html(response.forecast.txt_forecast.forecastday[6].title);
                 $("#forecat_day4").html(x4);
                 $("#forecat_day4_description").html(response.forecast.txt_forecast.forecastday[6].fcttext_metric);
@@ -176,7 +176,7 @@ function getCity(city) {
                 x5.setAttribute("width", "70");
                 x5.setAttribute("height", "auto");
                 x5.setAttribute("alt", "The Pulpit Rock");            
-                console.log(x5);
+               // console.log(x5);
                 $("#day5").html(response.forecast.txt_forecast.forecastday[7].title);
                 $("#forecat_day5").html(x5);
                 $("#forecat_day5_description").html(response.forecast.txt_forecast.forecastday[7].fcttext_metric);
@@ -186,7 +186,7 @@ function getCity(city) {
                 x6.setAttribute("width", "70");
                 x6.setAttribute("height", "auto");
                 x6.setAttribute("alt", "The Pulpit Rock");            
-                console.log(x6);
+                //console.log(x6);
                 $("#day6").html(response.forecast.txt_forecast.forecastday[8].title);
                 $("#forecat_day6").html(x6);
                 $("#forecat_day6_description").html(response.forecast.txt_forecast.forecastday[8].fcttext_metric);
@@ -207,7 +207,7 @@ $("#searchbtn").click(function(event){
     state2= $("#stateInput").val().trim();
     place= $("#cityInput").val().trim();
     city = state2+"/"+place;
-    console.log(city);
+   // console.log(city);
     getCity(city);
     
    
@@ -228,7 +228,7 @@ function showPosition(position) {
     //var queryURL1 = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + getLatitude+"," + getLongitude+ "&sensor=true";
     var queryURL1 = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + getLatitude + "," + getLongitude + "&key=" + apiCode;
    
-    console.log(queryURL1);
+    //console.log(queryURL1);
     $.ajax({
     url: queryURL1,
     method: "GET"
@@ -252,7 +252,7 @@ function showPosition(position) {
                     })
           
             });
-        console.log(country);
+       // console.log(country);
         if(country !="United States"){
             state=country;
         }
@@ -276,7 +276,7 @@ $( document ).ready(function() {
       //   getCity();
     }
     else {
-        console.log("not available");
+       // console.log("not available");
     
     }     
 
