@@ -41,7 +41,7 @@ function getCity(city) {
                     console.log(x);
                     $("#duration1").html(response.forecast.txt_forecast.forecastday[0].title);
                     $("#forecat_first").html(x);
-                    $("#forecat_first_description").html(response.forecast.txt_forecast.forecastday[0].fcttext);
+                    $("#forecat_first_description").html(response.forecast.txt_forecast.forecastday[0].fcttext_metric);
                     
                     var y = document.createElement("IMG");
                     y.setAttribute("src", response.forecast.txt_forecast.forecastday[1].icon_url);
@@ -51,7 +51,7 @@ function getCity(city) {
                     console.log(y);
                     $("#duration2").html(response.forecast.txt_forecast.forecastday[1].title);
                     $("#forecat_second").html(y);
-                    $("#forecat_second_description").html(response.forecast.txt_forecast.forecastday[1].fcttext);
+                    $("#forecat_second_description").html(response.forecast.txt_forecast.forecastday[1].fcttext_metric);
                     
                     var z = document.createElement("IMG");
                     z.setAttribute("src", response.forecast.txt_forecast.forecastday[2].icon_url);
@@ -61,7 +61,7 @@ function getCity(city) {
                     console.log(z);
                     $("#duration3").html(response.forecast.txt_forecast.forecastday[2].title);
                     $("#forecat_third").html(z);
-                    $("#forecat_third_description").html(response.forecast.txt_forecast.forecastday[2].fcttext);
+                    $("#forecat_third_description").html(response.forecast.txt_forecast.forecastday[2].fcttext_metric);
             }else{
                 
                     $("#duration1").text("");
@@ -99,11 +99,11 @@ function getCity(city) {
                     console.log(x);        
                     $("#current_condition").html(response.current_observation.weather); 
                     $("#current_img").html(x);
-                    $("#current_data").html("<p>Temperature: "+response.current_observation.temperature_string + "</p></br>"+                                           
-                                            "<p>Precipitation today (inch): "+response.current_observation.precip_today_in+ "</p></br>");
+                    $("#current_data").html("<p>Temperature: "+response.current_observation.temp_c + " C</p></br>"+                                           
+                                            "<p>Precipitation today (mm): "+response.current_observation.precip_today_metric+ "</p></br>");
                     $("#current_data2").html("<p>Relative Humidity: "+response.current_observation.relative_humidity + "</p></br>"+
                                             "<p>Wind: "+response.current_observation.wind_string + "</p></br>"+
-                                            "<p>Visibility: "+response.current_observation.visibility_mi + " miles</p></br>"+
+                                            "<p>Visibility: "+response.current_observation.visibility_km + " km</p></br>"+
                                     "<p>Atmospheric Pressure (mb): "+response.current_observation.pressure_mb+ "</p></br>");
             } else {
                 $("#current_condition").text("Cannot get the Weather information. Please re-enter City and State. If you still can not get weather information, please try with different name or nearby city"); 
@@ -114,6 +114,91 @@ function getCity(city) {
             }
 
         });
+
+    var queryURL3 = "https://api.wunderground.com/api/e58ab528f4132c06/forecast10day/q/"+city+".json"
+
+    console.log(queryURL3);
+    
+    $.ajax({
+        url: queryURL3,
+        method: "GET"
+            })
+            
+        .then (function(response) {
+            if (response.forecast) {
+               
+
+                console.log(queryURL);
+                console.log(response);
+                console.log(response.forecast.txt_forecast.date);
+                var x1 = document.createElement("IMG");
+                x1.setAttribute("src", response.forecast.txt_forecast.forecastday[3].icon_url);
+                x1.setAttribute("width", "70");
+                x1.setAttribute("height", "auto");
+                x1.setAttribute("alt", "The Pulpit Rock");            
+                console.log(x1);
+                $("#day1").html(response.forecast.txt_forecast.forecastday[3].title);
+                $("#forecat_day1").html(x1);
+                $("#forecat_day1_description").html(response.forecast.txt_forecast.forecastday[3].fcttext_metric);
+
+                var x2 = document.createElement("IMG");
+                x2.setAttribute("src", response.forecast.txt_forecast.forecastday[4].icon_url);
+                x2.setAttribute("width", "70");
+                x2.setAttribute("height", "auto");
+                x2.setAttribute("alt", "The Pulpit Rock");            
+                console.log(x2);
+                $("#day2").html(response.forecast.txt_forecast.forecastday[4].title);
+                $("#forecat_day2").html(x2);
+                $("#forecat_day2_description").html(response.forecast.txt_forecast.forecastday[4].fcttext_metric);
+
+                var x3 = document.createElement("IMG");
+                x3.setAttribute("src", response.forecast.txt_forecast.forecastday[5].icon_url);
+                x3.setAttribute("width", "70");
+                x3.setAttribute("height", "auto");
+                x3.setAttribute("alt", "The Pulpit Rock");            
+                console.log(x3);
+                $("#day3").html(response.forecast.txt_forecast.forecastday[5].title);
+                $("#forecat_day3").html(x3);
+                $("#forecat_day3_description").html(response.forecast.txt_forecast.forecastday[5].fcttext_metric);
+
+                var x4 = document.createElement("IMG");
+                x4.setAttribute("src", response.forecast.txt_forecast.forecastday[6].icon_url);
+                x4.setAttribute("width", "70");
+                x4.setAttribute("height", "auto");
+                x4.setAttribute("alt", "The Pulpit Rock");            
+                console.log(x4);
+                $("#day4").html(response.forecast.txt_forecast.forecastday[6].title);
+                $("#forecat_day4").html(x4);
+                $("#forecat_day4_description").html(response.forecast.txt_forecast.forecastday[6].fcttext_metric);
+
+                var x5 = document.createElement("IMG");
+                x5.setAttribute("src", response.forecast.txt_forecast.forecastday[7].icon_url);
+                x5.setAttribute("width", "70");
+                x5.setAttribute("height", "auto");
+                x5.setAttribute("alt", "The Pulpit Rock");            
+                console.log(x5);
+                $("#day5").html(response.forecast.txt_forecast.forecastday[7].title);
+                $("#forecat_day5").html(x5);
+                $("#forecat_day5_description").html(response.forecast.txt_forecast.forecastday[7].fcttext_metric);
+
+                var x6 = document.createElement("IMG");
+                x6.setAttribute("src", response.forecast.txt_forecast.forecastday[8].icon_url);
+                x6.setAttribute("width", "70");
+                x6.setAttribute("height", "auto");
+                x6.setAttribute("alt", "The Pulpit Rock");            
+                console.log(x6);
+                $("#day6").html(response.forecast.txt_forecast.forecastday[8].title);
+                $("#forecat_day6").html(x6);
+                $("#forecat_day6_description").html(response.forecast.txt_forecast.forecastday[8].fcttext_metric);
+                
+        }else{
+            
+                $("#day1").text("");
+                $("#forecat_day1").text("");
+                $("#fforecat_day1_description").text("");
+               
+        }
+            });    
 };
 
 $("#searchbtn").click(function(event){
